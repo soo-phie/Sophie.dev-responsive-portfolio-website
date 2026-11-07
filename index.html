@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pink">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sophie.dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="sophie.dev home">
+        <!-- Spinning planet. To use your own logo later, replace this <svg> with: <img src="logo.png" alt="sophie.dev logo" class="logo-img" /> -->
+        <svg class="logo-planet" viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <radialGradient id="lp" cx="35%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#ffd1f4" />
+              <stop offset="45%" stop-color="#ff4fd8" />
+              <stop offset="100%" stop-color="#4b1a9a" />
+            </radialGradient>
+            <linearGradient id="lr" x1="0" x2="1">
+              <stop offset="0%" stop-color="#ff6ad5" />
+              <stop offset="100%" stop-color="#8a6dff" />
+            </linearGradient>
+          </defs>
+          <g transform="rotate(-22 32 32)">
+            <path d="M2 32 A30 8 0 0 1 62 32" fill="none" stroke="url(#lr)" stroke-width="3" opacity="0.5" />
+          </g>
+          <circle cx="32" cy="32" r="16" fill="url(#lp)" />
+          <ellipse cx="32" cy="28" rx="16" ry="1.8" fill="#fff" opacity="0.25" />
+          <ellipse cx="32" cy="36" rx="16" ry="2.4" fill="#2a0a55" opacity="0.3" />
+          <g transform="rotate(-22 32 32)">
+            <path d="M2 32 A30 8 0 0 0 62 32" fill="none" stroke="url(#lr)" stroke-width="3" />
+          </g>
+        </svg>
+        <span class="logo-text">sophie<span class="dot">.</span>dev</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav" id="nav">
+        <a href="#home" data-link="home">Home</a>
+        <a href="#about" data-link="about">About</a>
+        <a href="#tasks" data-link="tasks">Missions</a>
+        <a href="#skills" data-link="skills">Skills</a>
+        <a href="#contact" data-link="contact">Contact</a>
+        <button class="theme-btn" id="themeBtn" aria-label="Switch colour theme" title="Switch nebula colours">✨</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ PAGE 1 : FIXED SPACE HERO ============ -->
+  <section class="hero" id="home">
+    <div class="nebula n1" aria-hidden="true"></div>
+    <div class="nebula n2" aria-hidden="true"></div>
+
+    <!-- floating squares & rectangles -->
+    <div class="shapes" aria-hidden="true">
+      <span class="shape sq s1"></span>
+      <span class="shape rect s2"></span>
+      <span class="shape sq s3"></span>
+      <span class="shape rect s4"></span>
+      <span class="shape sq s5"></span>
+      <span class="shape rect s6"></span>
+    </div>
+
+    <div class="container hero-grid" id="heroGrid">
+      <div class="hero-text">
+        <p class="eyebrow">★ Welcome to my universe</p>
+        <h1>Hi, I'm <span class="grad">Sophie.</span><br />I build <span class="typed" id="typed"></span><span class="caret">|</span></h1>
+        <p class="lead">A student developer crafting beautiful, interactive experiences with HTML, CSS and JavaScript. Scroll down and fly through my galaxy.</p>
+        <div class="hero-actions">
+          <a href="#tasks" class="btn magnetic">🚀 Launch Missions</a>
+          <a href="#about" class="btn ghost magnetic">About Me</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="float">
+          <svg viewBox="0 0 400 400" class="big-planet">
+            <defs>
+              <radialGradient id="pg" cx="35%" cy="30%" r="80%">
+                <stop offset="0%" stop-color="#ffb3f0" />
+                <stop offset="35%" stop-color="#e052c4" />
+                <stop offset="70%" stop-color="#7a2bd6" />
+                <stop offset="100%" stop-color="#1a0638" />
+              </radialGradient>
+              <linearGradient id="rg" x1="0" x2="1">
+                <stop offset="0%" stop-color="#ff6ad5" />
+                <stop offset="50%" stop-color="#c4a1ff" />
+                <stop offset="100%" stop-color="#7a5cff" />
+              </linearGradient>
+              <clipPath id="pc"><circle cx="200" cy="200" r="105" /></clipPath>
+            </defs>
+            <g transform="rotate(-20 200 200)">
+              <path d="M10 200 A190 50 0 0 1 390 200" fill="none" stroke="url(#rg)" stroke-width="16" opacity="0.55" />
+              <path d="M40 200 A160 40 0 0 1 360 200" fill="none" stroke="url(#rg)" stroke-width="5" opacity="0.5" />
+            </g>
+            <circle cx="200" cy="200" r="105" fill="url(#pg)" />
+            <g clip-path="url(#pc)" opacity="0.28">
+              <ellipse cx="200" cy="165" rx="130" ry="9" fill="#fff" />
+              <ellipse cx="200" cy="205" rx="130" ry="14" fill="#3a0a6b" />
+              <ellipse cx="200" cy="245" rx="130" ry="8" fill="#fff" />
+            </g>
+            <g transform="rotate(-20 200 200)">
+              <path d="M10 200 A190 50 0 0 0 390 200" fill="none" stroke="url(#rg)" stroke-width="16" />
+              <path d="M40 200 A160 40 0 0 0 360 200" fill="none" stroke="url(#rg)" stroke-width="5" opacity="0.8" />
+            </g>
+          </svg>
+        </div>
+        <div class="orbit"><span class="moon"></span></div>
+        <div class="orbit o2"><span class="moon m2"></span></div>
+        <span class="planet-sm p-blue"></span>
+        <span class="planet-sm p-pink"></span>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-hint" aria-label="Scroll down">
+      <span class="mouse"><i></i></span>
+      <small>Scroll</small>
+    </a>
+  </section>
+
+  <!-- ============ SCROLLING PAGES (slide over the fixed hero) ============ -->
+  <main class="pages">
+
+    <!-- ===== PAGE 2 : BLACK — ABOUT ===== -->
+    <section class="page p2" id="about" data-page="about">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="shapes" aria-hidden="true">
+        <span class="shape sq s1"></span>
+        <span class="shape rect s2"></span>
+        <span class="shape sq s3"></span>
+      </div>
+
+      <div class="container">
+        <p class="eyebrow center reveal">02 — About</p>
+        <h2 class="title reveal">Designing <span class="grad">beyond</span> the ordinary</h2>
+
+        <div class="bento">
+          <article class="tile big reveal tilt">
+            <div class="spin-border"></div>
+            <div class="tile-in">
+              <h3>Hello, world 👋</h3>
+              <p>I'm Sophie, a developer in training who loves turning ideas into clean, fast and good-looking websites. I care about the details: smooth motion, thoughtful colour and layouts that feel premium on every screen.</p>
+            </div>
+          </article>
+
+          <article class="tile square reveal tilt" style="--d:.1s">
+            <div class="tile-in center">
+              <div class="num" data-count="12">0</div><span class="plus">+</span>
+              <p>Projects built</p>
+            </div>
+          </article>
+
+          <article class="tile square reveal tilt" style="--d:.2s">
+            <div class="tile-in center">
+              <div class="num" data-count="3">0</div>
+              <p>Core languages</p>
+            </div>
+          </article>
+
+          <article class="tile wide reveal tilt" style="--d:.15s">
+            <div class="tile-in">
+              <h3>🛰️ What I do</h3>
+              <p>Responsive layouts · Interactive UI · Animations · Clean code</p>
+            </div>
+          </article>
+
+          <article class="tile square reveal tilt" style="--d:.25s">
+            <div class="tile-in center">
+              <div class="num" data-count="100">0</div><span class="plus">%</span>
+              <p>Passion</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- marquee strip -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>HTML ✦ CSS ✦ JavaScript ✦ RESPONSIVE ✦ ANIMATION ✦ DESIGN ✦ HTML ✦ CSS ✦ JavaScript ✦ RESPONSIVE ✦ ANIMATION ✦ DESIGN ✦ </span>
+          <span>HTML ✦ CSS ✦ JavaScript ✦ RESPONSIVE ✦ ANIMATION ✦ DESIGN ✦ HTML ✦ CSS ✦ JavaScript ✦ RESPONSIVE ✦ ANIMATION ✦ DESIGN ✦ </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 3 : BLUE → PINK — MISSION CONTROL ===== -->
+    <section class="page p3" id="tasks" data-page="tasks">
+      <div class="orbs" aria-hidden="true">
+        <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
+      </div>
+      <div class="shapes" aria-hidden="true">
+        <span class="shape sq s1"></span>
+        <span class="shape rect s2"></span>
+        <span class="shape sq s4"></span>
+        <span class="shape rect s5"></span>
+      </div>
+
+      <div class="container">
+        <p class="eyebrow center reveal">03 — Mission Control</p>
+        <h2 class="title reveal">Plan your <span class="grad-light">missions</span></h2>
+
+        <div class="task-box glass reveal">
+          <form id="taskForm" class="task-form">
+            <input type="text" id="taskInput" placeholder="Enter a new mission..." required maxlength="80" />
+            <button type="submit" class="btn">Add</button>
+          </form>
+
+          <div class="filters" id="filters">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="active">Active</button>
+            <button class="filter" data-filter="done">Completed</button>
+          </div>
+
+          <ul id="taskList" class="task-list"></ul>
+          <p class="counter" id="counter"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 4 : PURPLE — SKILLS ===== -->
+    <section class="page p4" id="skills" data-page="skills">
+      <div class="rings" aria-hidden="true">
+        <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+      </div>
+      <div class="shapes" aria-hidden="true">
+        <span class="shape sq s2"></span>
+        <span class="shape rect s3"></span>
+        <span class="shape sq s6"></span>
+        <span class="shape rect s1"></span>
+      </div>
+
+      <div class="container">
+        <p class="eyebrow center reveal">04 — Skills</p>
+        <h2 class="title reveal">My <span class="grad-light">power levels</span></h2>
+
+        <div class="skills-grid">
+          <div class="skills-bars reveal">
+            <div class="bar" data-level="90"><div class="bar-top"><span>HTML</span><b>90%</b></div><div class="track"><i></i></div></div>
+            <div class="bar" data-level="82"><div class="bar-top"><span>CSS</span><b>82%</b></div><div class="track"><i></i></div></div>
+            <div class="bar" data-level="70"><div class="bar-top"><span>JavaScript</span><b>70%</b></div><div class="track"><i></i></div></div>
+            <div class="bar" data-level="85"><div class="bar-top"><span>Responsive Design</span><b>85%</b></div><div class="track"><i></i></div></div>
+          </div>
+
+          <div class="skill-cards">
+            <article class="mini reveal tilt" style="--d:.05s"><span>🎨</span><h4>UI Design</h4></article>
+            <article class="mini reveal tilt" style="--d:.15s"><span>⚡</span><h4>Animation</h4></article>
+            <article class="mini reveal tilt" style="--d:.25s"><span>📱</span><h4>Mobile First</h4></article>
+            <article class="mini reveal tilt" style="--d:.35s"><span>🧩</span><h4>Clean Code</h4></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PAGE 5 : BLACK — CONTACT ===== -->
+    <section class="page p5" id="contact" data-page="contact">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="shapes" aria-hidden="true">
+        <span class="shape sq s1"></span>
+        <span class="shape rect s4"></span>
+        <span class="shape sq s5"></span>
+        <span class="shape rect s6"></span>
+      </div>
+
+      <div class="container">
+        <p class="eyebrow center reveal">05 — Contact</p>
+        <h2 class="title reveal">Let's <span class="grad">connect</span></h2>
+
+        <div class="contact-wrap reveal">
+          <div class="frame"></div>
+          <form id="contactForm" class="contact-form" novalidate>
+            <label>Name
+              <input type="text" id="name" placeholder="Commander Nova" />
+            </label>
+            <label>Email
+              <input type="email" id="email" placeholder="you@galaxy.com" />
+            </label>
+            <label>Message
+              <textarea id="message" rows="4" placeholder="Send a signal..."></textarea>
+            </label>
+            <p class="form-msg" id="formMsg"></p>
+            <button type="submit" class="btn magnetic">📡 Send Transmission</button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p class="foot-logo">sophie<span>.</span>dev</p>
+        <p>&copy; <span id="year"></span> sophie.dev · Built among the stars with HTML, CSS &amp; JavaScript</p>
+      </footer>
+    </section>
+  </main>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">🚀</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
